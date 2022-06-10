@@ -1,6 +1,7 @@
 import React from 'react';
+import './App.css';
 
-import FetchFromApi from './components/fetchFromApi';
+import FetchFromApi from './fetchFromApi';
 
 
 
