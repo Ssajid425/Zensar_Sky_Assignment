@@ -22,7 +22,7 @@ const FetchFromApi = () => {
     }
     return(
   <>
-         <h1 className="text centre">SpaceX Past Launches </h1>
+         <h1 className="text-muted">SpaceX Past Launches </h1>
          <div className="container-fluid mt-5">
           <div className="row text-center">
             {
@@ -31,13 +31,15 @@ const FetchFromApi = () => {
                         <div className="col-10 col-md-4 mt-5 " key = {selectData.id}>
                         <div className="card p-2" >
                             <div className="d-flex align-items-center">
-                             
+                            <div className="image"><img src = {selectData.links.patch.large} class="rounded" width="155"/></div>
                               <div className="m-3 w-100">
-                                  <h4 className="mb-0 mt-0 text-left">{selectData.name}</h4> <span className=" ">{selectData.details}</span>
+                                  <h4 className="mb-0 mt-0 text-left">{selectData.name}</h4> 
+                                  <span className=" ">{selectData.details}</span> 
+                                  
                                   <div className="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white status">
-                                      <div className="d-flex flex-column"><span className="Flight number">Flight No.</span>{selectData.cores.flight}</div> 
-                                      <div className="d-flex flex-column"><span className="followers">Success/Failure</span>{selectData.success}</div> 
-                                      <div className="d-flex flex-column"><span className="ratingd">Ratings</span>4.5</div> 
+                                      <div className="d-flex flex-column"><span className="Flight number">{selectData.flight_number}</span>Flight No.</div> 
+                                      {/* <div className="d-flex flex-column"><span className="followers">{selectData.success}</span>Success/failure</div> 
+                                      <div className="d-flex flex-column"><span className="ratingd">Ratings</span>4.5</div>  */}
                                   </div>
                               </div>
                             </div>
@@ -54,10 +56,10 @@ const FetchFromApi = () => {
         previousLabel={"previous"}
         nextLabel={"next"}
         breakLabel={"..."}
-        pageCount={25}
+        pageCount={10}
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}
-       onPageChange={handlePageClick}
+        onPageChange={handlePageClick}
         containerClassName={"pagination justify-content-center"}
         pageClassName={"page-item"}
         pageLinkClassName={"page-link"}
