@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -22,31 +24,33 @@ const FetchFromApi = () => {
     
     }, [] );
 
-    
-    
 
+    
+                
                 const renderData =(selectData,index) => {
                     return (
                         
-                  
-           
-                        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3"  key = {selectData.id}>
-                        <a href="">
+                        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3"  key = {selectData.id}>    
                             <div class="card-flyer">
                                 <div class="text-box">
                                     <div class="image-box">
-                                        <img src={selectData.links.patch.small} class = "rounded" alt="small" />
+                                    <Link to={`"/moreinformation/${selectData.id}`}> <img src={selectData.links.patch.small} class = "rounded" alt="small" /></Link>
                                     </div>
                                     <div class="text-container">
-                                        <h6>{selectData.name}</h6>
+                                        <h6><Link to="/moreinformation">{selectData.name}</Link></h6>
                                         <div class ="text-limit" >
-                                        <p>{selectData.details}</p>
+                                      
+
                                         </div>
+                                        
                                     </div>
                                 </div>
+                                <p>Flight Number:{selectData.flight_number}</p> 
                             </div>
-                        </a>
+                            
+                 
                     </div>  
+                    
            
                     )
                 }
