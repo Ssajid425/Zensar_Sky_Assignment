@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 
 
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 const FetchFromApi = () => {
     const [ data ,setData] = useState([]);
     const [visible,setVisible]= useState(12);
+    const [pageCount, setpageCount] = useState(0);
     
     
    
@@ -64,10 +66,30 @@ const FetchFromApi = () => {
         {visible < data.length &&(
       <button className='button' onClick={loadMore}><span>Load More</span></button>
         )}
+
+<ReactPaginate
+      previousLabel={"previous"}
+      nextLabel={"next"}
+      breakLabel={"..."}
+     pageCount={pageCount}
+      marginPagesDisplayed={15}
+      pageRangeDisplayed={20}
+    //  onPageChange={handlePageClick}
+      containerClassName={"pagination justify-content-center"}
+      pageClassName={"page-item"}
+      pageLinkClassName={"page-link"}
+      previousClassName={"page-item"}
+      previousLinkClassName={"page-link"}
+      nextClassName={"page-item"}
+      nextLinkClassName={"page-link"}
+      breakClassName={"page-item"}
+      breakLinkClassName={"page-link"}
+      activeClassName={"active"}
+    />
       </div>
       )
  
-  
+    
     
 }
 export default FetchFromApi;
